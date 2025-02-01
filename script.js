@@ -407,3 +407,15 @@ function showFeedback(correct) {
         }, 500); // Wait for fade out to finish
     }, 1000); // Show feedback for 1 second
 }
+
+function nextQuestion() {
+    timeLeft = 30;
+    timerElement.innerText = timeLeft;
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(questions[currentQuestionIndex]);
+        startTimer();
+    } else {
+        endGame();
+    }
+}
