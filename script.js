@@ -62,3 +62,17 @@ const questions = [
         ]
     }
 ];
+
+startButton.addEventListener('click', startGame);
+
+function startGame() {
+    startScreen.classList.add('d-none');
+    gameScreen.classList.remove('d-none');
+    score = 0;
+    currentQuestionIndex = 0;
+    timeLeft = 30;
+    scoreElement.innerText = `Score: ${score}`;
+    feedbackElement.innerText = '';
+    startTimer();
+    showQuestion(questions[currentQuestionIndex]);
+}
