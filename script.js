@@ -419,3 +419,14 @@ function nextQuestion() {
         endGame();
     }
 }
+
+function endGame() {
+    clearInterval(timer);
+    gameScreen.classList.remove('show');
+    gameScreen.style.opacity = 0; // Fade out effect
+    setTimeout(() => {
+        gameScreen.classList.add('d-none');
+        endScreen.classList.remove('d-none');
+        finalScoreElement.innerText = score;
+    }, 500); // Wait for fade out to finish
+}
