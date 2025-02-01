@@ -382,3 +382,14 @@ function showQuestion(question) {
         answerButtons.appendChild(button);
     });
 }
+
+function selectAnswer(answer) {
+    clearInterval(timer);
+    const correct = answer.correct;
+    showFeedback(correct);
+    if (correct) {
+        score++;
+        scoreElement.innerText = `Score: ${score}`;
+    }
+    setTimeout(nextQuestion, 1000);
+}
