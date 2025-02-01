@@ -100,3 +100,42 @@ function showQuestion(question) {
         answerButtons.appendChild(button);
     });
 }
+
+function selectAnswer(answer) {
+    clearInterval(timer);
+    const correct = answer.correct;
+    showFeedback(correct);
+    if (correct) {
+        score++;
+        scoreElement.innerText = `Score: ${score}`;
+    }
+    setTimeout(nextQuestion, 1000);
+}
+
+function showFeedback(correct) {
+    feedbackElement.innerText = correct ? 'Correct!' : 'Incorrect!';
+}
+
+function nextQuestion() {
+    timeLeft = 30;
+    timerElement.innerText = timeLeft;
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        showQuestion(questions[currentQuestionIndex]);
+        startTimer();
+    } else {
+        endGame();
+    }
+}
+
+function endGame() {
+    clearInterval(timer);
+    gameScreen.classList.add('d-none');
+    endScreen.classList.remove('d-none');
+    finalScoreElement.innerText = score;
+}
+
+document.getElementById('restart-button').addEventListener('click', () => {
+    endScreen.classList.add('d-none');
+    startScreen.classList.remove('d-none');
+});
