@@ -76,3 +76,15 @@ function startGame() {
     startTimer();
     showQuestion(questions[currentQuestionIndex]);
 }
+
+function startTimer() {
+    timer = setInterval(() => {
+        timeLeft--;
+        timerElement.innerText = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            showFeedback(false);
+            setTimeout(nextQuestion, 1000);
+        }
+    }, 1000);
+}
