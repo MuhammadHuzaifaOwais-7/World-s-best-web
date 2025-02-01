@@ -370,3 +370,15 @@ function startGame() {
     startTimer();
     showQuestion(questions[currentQuestionIndex]);
 }
+
+function showQuestion(question) {
+    questionElement.innerText = question.question;
+    answerButtons.innerHTML = '';
+    question.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerText = answer.text;
+        button.classList.add('btn', 'btn-outline-primary', 'mb-2');
+        button.addEventListener('click', () => selectAnswer(answer));
+        answerButtons.appendChild(button);
+    });
+}
