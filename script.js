@@ -393,3 +393,17 @@ function selectAnswer(answer) {
     }
     setTimeout(nextQuestion, 1000);
 }
+
+function showFeedback(correct) {
+    feedbackElement.innerText = correct ? 'Correct!' : 'Incorrect!';
+    feedbackElement.classList.remove('hide');
+    feedbackElement.classList.add('show');
+    feedbackElement.style.opacity = 1; // Fade in effect
+    setTimeout(() => {
+        feedbackElement.style.opacity = 0; // Fade out effect
+        setTimeout(() => {
+            feedbackElement.classList.remove('show');
+            feedbackElement.classList.add('hide');
+        }, 500); // Wait for fade out to finish
+    }, 1000); // Show feedback for 1 second
+}
