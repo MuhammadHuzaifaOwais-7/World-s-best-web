@@ -1,0 +1,12 @@
+body {
+    background-color: #f8f9fa;
+}
+
+#feedback {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.d-none {
+    display: none;
+}
