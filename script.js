@@ -9,3 +9,8 @@ const scoreElement = document.getElementById('score');
 const feedbackElement = document.getElementById('feedback');
 const finalScoreElement = document.getElementById('final-score');
 const timerElement = document.getElementById('time-left');
+
+let currentQuestionIndex = 0;
+let score = 0;
+let timer;
+let timeLeft = 30;
