@@ -355,3 +355,18 @@ document.getElementById('restart-button').addEventListener('click', () => {
     startScreen.classList.remove('d-none');
 });
 
+function startGame() {
+    startScreen.classList.add('d-none');
+    gameScreen.classList.remove('d-none');
+    gameScreen.classList.add('show');
+    setTimeout(() => {
+        gameScreen.style.opacity = 1; // Fade in effect
+    }, 10); // Small timeout to allow the class to take effect
+    score = 0;
+    currentQuestionIndex = 0;
+    timeLeft = 30;
+    scoreElement.innerText = `Score: ${score}`;
+    feedbackElement.innerText = '';
+    startTimer();
+    showQuestion(questions[currentQuestionIndex]);
+}
